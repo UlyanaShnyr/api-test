@@ -7,6 +7,25 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Hi everybody..im here!</h1>
+    <h1>Count 0</h1>
+    <button id="increase">increase</button>
+    <button id="decrease">decrease</button>
+    
+
+    <script>
+    const increase=document.getElementById('increase');
+    const decrease=document.getElementById('decrease');
+    const h1=document.querySelector('h1');
+    increase.addEventListener('click',()=>{
+        fetch("http://localhost:8080/increase")
+        .then(response=>response.json())
+        .then(data=>h1.textContent=`Count ${data}`)
+    });
+    decrease.addEventListener('click',()=>{
+        fetch("http://localhost:8080/decrease")
+        .then(response=>response.json())
+        .then(data=>h1.textContent=`Count ${data}`)
+    })
+    </script>
 </body>
 </html>
