@@ -21,8 +21,18 @@
         .then(response=>response.json())
         .then(data=>h1.textContent=`Count ${data}`)
     });
+    increase.addEventListener('click',()=>{
+        fetch("https://blooming-brushlands-93069.herokuapp.com/increase")
+        .then(response=>response.json())
+        .then(data=>h1.textContent=`Count ${data}`)
+    });
     decrease.addEventListener('click',()=>{
         fetch("http://localhost:8080/decrease")
+        .then(response=>response.json())
+        .then(data=>h1.textContent=`Count ${data}`)
+    });
+    decrease.addEventListener('click',()=>{
+        fetch("https://blooming-brushlands-93069.herokuapp.com/decrease")
         .then(response=>response.json())
         .then(data=>h1.textContent=`Count ${data}`)
     })
