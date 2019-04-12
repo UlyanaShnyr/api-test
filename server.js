@@ -4,7 +4,7 @@ const port=process.env.PORT||8080;
 
 app.use(express.static('public'))
 
-app.get('/', function (req, res) {
+app.get('/home', function (req, res) {
   res.send('Hello World!');
 });
 
