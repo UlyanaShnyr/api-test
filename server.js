@@ -1,13 +1,21 @@
-var express = require('express');
-var app = express();
+const express = require('express');
+const app = express();
 const port=process.env.PORT||8080;
 
+const database={
+    count:0,
+}
 app.use(express.static('public'))
 
-app.get('/home', function (req, res) {
-  res.send('Hello World!');
+app.get('/increase', function (req, res) {
+  database.count++;
+    res.send(`Count is now ${database.count}`);
 });
 
+app.get('/decrease', function (req, res) {
+    database.count--;
+      res.send(`Count is now ${database.count}`);
+  });
 app.listen(port, function () {
   console.log(`Example app listening on port ${port}`);
 });
